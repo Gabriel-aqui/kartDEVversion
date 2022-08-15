@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Speed Racer</title>
+    <!-- Lib -->
+    <script src="./lib/p5.min.js"></script>
+    <script src="./lib/p5.dom.min.js"></script>
+    <script src="./lib/p5.sound.min.js"></script>
+    <script src="./lib/p5.play.js"></script>
+  
+    <link rel="stylesheet" href="style.css" />
+    
+    <script src="./js/Game.js"></script>
+    <script src="./js/Form.js"></script>
+    <script src="./js/Player.js"></script>
+
+    <!-- Firebase SDK CODE ADD BELOW -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+
+
+    <script>
+   const firebaseConfig = {
+  apiKey: "AIzaSyCbkY6CLdYt1OEGpy5jsDrQkbIozOC7ccY",
+  authDomain: "kart-multiplayer-project.firebaseapp.com",
+  databaseURL: "https://kart-multiplayer-project-default-rtdb.firebaseio.com",
+  projectId: "kart-multiplayer-project",
+  storageBucket: "kart-multiplayer-project.appspot.com",
+  messagingSenderId: "1027705508835",
+  appId: "1:1027705508835:web:ea7d45787900cb164706d6"
+};
+      // Configuração do Firebase do seu aplicativo da web
+      //adicione aqui
+      // Inicializar Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+   
+  </head>
+  <body>
+    
+    <script src="./sketch.js"></script>
+  </body>
+</html>
