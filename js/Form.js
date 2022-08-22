@@ -37,6 +37,13 @@ class Form {
      this.playButton.hide();
      this.input.hide();
      var message = `Olá! ${this.input.value()}</br> pode ir tomando seu café`
-    this.greeting.html(message)    })
+    this.greeting.html(message)
+    playerCount+=1
+    player.name=this.input.value()
+    player.index = playerCount
+    player.addPlayer()
+    player.updateCount(playerCount)
+    player.getDistance()
+  })
   }
 }

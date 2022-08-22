@@ -4,6 +4,9 @@ class Player {
     this.index = null
     this.positionX = 0
     this.positionY = 0
+    this.rank = 0
+    this.score = 0
+    this.fuel = 1.5
   }
   getCount(){
     var playerCountRef = database.ref("playerCount")
@@ -16,7 +19,7 @@ class Player {
   }
   static getPlayerInfo() {
     var playerInfoRef = database.ref("players")
-    playersInfoRef.on("value", data =>{
+    playerInfoRef.on("value", data =>{
       allPlayers = data.val()
     })
   }
@@ -30,7 +33,9 @@ class Player {
     database.ref(playerIndex).set({
       name:this.name,
       positionX:this.positionX,
-      positionY:this.positionY
+      positionY:this.positionY,
+      rank:this.rank,
+      score:this.score
     })
   }
   update(){
@@ -38,7 +43,18 @@ class Player {
     database.ref(playerIndex).update({
       name:this.name,
       positionX:this.positionX,
-      positionY:this.positionY
+      positionY:this.positionY,
+      rank:this.rank,
+      score:this.score
     })
+  }
+  getDistance() {
+    var distanceRef = database.ref ("players/player" + this.index)
+    distanceRef.on("value", data => {
+      var data = data.val()
+      this.positionX = data.positionX
+      this.positionY = data.positionY
+    })
+    
   }
 }
