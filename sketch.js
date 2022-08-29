@@ -11,16 +11,20 @@ var obstacle1Image, obstacle2Image
 var obstacles
 var fuel, fuelImg
 var coin, coinImg
+var lifeImage
+var blast
 
 function preload() {
-  backgroundImage = loadImage("./assets/planodefundo.png");
+  backgroundImage = loadImage("assets/planodefundo.png");
   car1 = loadImage("assets/car1.png")
   car2 = loadImage("assets/car2.png")
   track = loadImage("assets/PISTA.png")
-  cone = loadImage("assets/obstacle1.png")
-  tire = loadImage("assets/obstacle2.png")
-  obstacle1Image = loadImage("assets/fuel.png")
-  obstacle2Image = loadImage("assets/goldCoin.png")
+  obstacle1Image = loadImage("assets/obstacle1.png")
+  obstacle2Image = loadImage("assets/obstacle2.png")
+  fuelImg = loadImage("assets/fuel.png")
+  coinImg = loadImage("assets/goldCoin.png")
+  lifeImage = loadImage("assets/life.png")
+  blast = loadImage("assets/blast.png")
 }
 
 
@@ -42,8 +46,11 @@ function draw() {
   if(gameState===1){
     game.play()
   }
+  if(gameState === 2) {
+     game.showLeaderBoard()
+     game.end()
+  }
 }
-
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

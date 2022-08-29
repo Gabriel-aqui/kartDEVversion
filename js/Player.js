@@ -7,6 +7,7 @@ class Player {
     this.rank = 0
     this.score = 0
     this.fuel = 1.5
+    this.life = 185
   }
   getCount(){
     var playerCountRef = database.ref("playerCount")
@@ -45,7 +46,8 @@ class Player {
       positionX:this.positionX,
       positionY:this.positionY,
       rank:this.rank,
-      score:this.score
+      score:this.score,
+      life:this.life
     })
   }
   getDistance() {
@@ -57,4 +59,14 @@ class Player {
     })
     
   }
+  static updateCars(rank) {
+   database.ref("/").update({
+    carsAtEnd:rank
+   })
+  }
+  getCars(){
+    database.ref("carsAtEnd").on("value", data =>{
+      this.rank = data.val()
+  })
+}
 }
